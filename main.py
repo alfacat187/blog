@@ -1,3 +1,5 @@
+from a2wsgi import ASGIMiddleware
+import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -17,3 +19,5 @@ async def root(request: Request):
 # @app.get("/hello/{name}")
 # async def say_hello(name: str):
 #     return {"message": f"Hello {name}"}
+
+WSGI_APP = ASGIMiddleware(app)
